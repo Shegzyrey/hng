@@ -9,4 +9,4 @@ class StudentData(models.Model):
 	bio = models.TextField(blank=True)
 
 	def __self__(self):
-		return self.slackusername
+		return self.slackUsername
