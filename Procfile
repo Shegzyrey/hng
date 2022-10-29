@@ -1,1 +1,1 @@
-web:gunicorn apiroot.wsgi
+web: gunicorn apiroot.wsgi
