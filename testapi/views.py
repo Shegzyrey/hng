@@ -4,8 +4,8 @@ from .models import StudentData
 from .serializers import StudentDataSerializer
 # Create your views here.
 def index(request):
-	studentdata = StudentData.objects.all()
-	serializer = StudentDataSerializer(studentdata, many=True)
+	studentdata = StudentData.objects.get(id=1)
+	serializer = StudentDataSerializer(studentdata)
 
 	return JsonResponse(serializer.data, safe=False)
 
