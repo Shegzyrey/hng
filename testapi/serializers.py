@@ -9,12 +9,12 @@ class StudentDataSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.StudentData
 		fields = ('slackUsername', 'backend', 'age', 'bio')
-
+'''
 class CalcDataSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.CalcData
 		fields = ("operation_type", "x", "y")
-
+'''
 '''
 class Operations(Enum):
     SUBTRACTION=0

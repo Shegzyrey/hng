@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-q0t846%xaxdtnxx4u2v3w7izf8cj7usm0_en3ku21kikv1h-#*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+X_FRAME_OPTIONS = '*'
 
 
 # Application definition
@@ -126,6 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import django_on_heroku
 django_on_heroku.settings(locals())
 
+'''
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
     'DEFAULT_PAGINATION_CLASS':
@@ -157,3 +159,4 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
 }
+'''
