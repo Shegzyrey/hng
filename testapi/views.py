@@ -25,13 +25,13 @@ def calc(request):
 	
 	x = int(request.data["x"])
 	y = int(request.data["y"])
-	operations_type = str(request.data["operation_type"])
-	operation = operations_type.split(" ")
+	op = str(request.data["operation_type"])
+	operation = op.split(" ")
 
 	for i in operation:
 		if i.lower() in add_arr:
 			result = x+y
-			operations_type = "Addition"
+			op = "Addition"
 			break
 		elif i.lower() in subtract_arr:
 			result = x-y
@@ -39,16 +39,16 @@ def calc(request):
 			break
 		elif i.lower() in mult_arr:
 			result = x*y
-			operations_type = "Multiplication"
+			op = "Multiplication"
 			break
 		else:
-			operations_type = "Invalid Operator"
+			op = "Invalid Operator"
 			
 	give = {
 		"slackUsername":"shegzyrey",
 		"x":x,
 		"y":y,
-		"operation_type":operations_type,
+		"operation_type":op,
 		"result":result,
 		}
 		
