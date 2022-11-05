@@ -1,7 +1,5 @@
 from rest_framework import serializers
 from . import models
-from rest_enumfield import EnumField
-from enum import Enum
 
 
 
