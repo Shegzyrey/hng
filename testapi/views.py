@@ -52,7 +52,7 @@ def calc(request):
 		"result":result,
 		}
 		
-	return Response(give, status=status.HTTP_201_CREATED, headers=header)
+	return Response(give, status=status.HTTP_200_OK, headers=header)
         
 
 
