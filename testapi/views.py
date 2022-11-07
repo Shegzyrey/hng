@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework import status
+import operator
 
 # Create your views here.
 @api_view(['GET', 'POST'])
@@ -20,35 +21,32 @@ def calc(request):
 	header = {"Access-Control-Allow-Origin":"*"}
 	result = 0
 	add_arr = ['add', 'addition', 'added', 'sum', 'sumup', 'summation of']
-	subtract_arr = ['minus', 'subtact','subtraction', 'difference']
+	sub_arr = ['minus', 'subtract','subtraction', 'difference']
 	mult_arr = ['multiply', 'multiplication', 'times', 'multiplied']
 	
 	x = int(request.data["x"])
 	y = int(request.data["y"])
-	op = str(request.data["operation_type"])
-	operation = op.split(" ")
+	operations_type = str(request.data["operation_type"]).lower().split(" ")
 
-	for i in operation:
-		if i.lower() in add_arr:
-			result = x+y
-			op = "Addition"
+	for i in operations_type:
+		if i in add_arr:
+			result = operator.add(x, y)
+			operations_type = add_arr[1]
 			break
-		elif i.lower() in subtract_arr:
+		elif i in sub_arr:
 			result = x-y
-			operations_type = "Subtraction"
+			operations_type = sub_arr[2]
 			break
-		elif i.lower() in mult_arr:
+		elif i in mult_arr:
 			result = x*y
-			op = "Multiplication"
+			operations_type = mult_arr[1]
 			break
 		else:
-			op = "Invalid Operator"
+			operations_type = "Invalid Operator"
 			
 	give = {
 		"slackUsername":"shegzyrey",
-		"x":x,
-		"y":y,
-		"operation_type":op,
+		"operation_type":operations_type,
 		"result":result,
 		}
 		
